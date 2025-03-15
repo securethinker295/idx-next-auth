@@ -1,6 +1,5 @@
-# Next.js GitHub Authentication in Google IDX
 
-This repository demonstrates how to implement GitHub authentication in a Next.js application running in Google IDX. It uses NextAuth.js with the GitHub provider to handle authentication.
+This guide shows how to set up GitHub authentication in a Next.js application running in Google IDX using the pre-built repository.
 
 ## Prerequisites
 
@@ -10,30 +9,26 @@ This repository demonstrates how to implement GitHub authentication in a Next.js
 
 ## Setting Up Your Development Environment
 
-### 1. Create a New IDX Workspace
+### 1. Import the Repository in Google IDX
 
-Start with a blank Google IDX workspace. Once initialized, you'll have access to a terminal to create your project.
+1. Open Google IDX
+2. Click on \"Import\" or \"Import Repository\"
+3. Paste this repository URL: `https://github.com/securethinker295/idx-next-auth.git`
+4. Click \"Import\" and wait for the repository to be cloned
 
-### 2. Create a Next.js Application
+### 2. Install Dependencies
 
-In the terminal, run the following command to create a new Next.js application with TypeScript and Tailwind CSS:
-
-```bash
-npx create-next-app@latest my-auth-app --typescript --tailwind --app
-cd my-auth-app
-```
-
-### 3. Install NextAuth.js
+Once the repository is imported, in the terminal run:
 
 ```bash
-npm install next-auth
+npm install
 ```
 
 ## GitHub OAuth Setup
 
 ### 1. Get Your IDX Preview URL
 
-Start your application in development mode:
+Start the application in development mode:
 
 ```bash
 npm run dev
@@ -46,20 +41,20 @@ Google IDX will assign a preview URL to your application. **This is crucial for 
 For GitHub authentication to work, your IDX workspace must be set to public:
 
 1. Click on the workspace settings icon
-2. Under "Visibility", select "Public"
+2. Under \"Visibility\", select \"Public\"
 3. Save your changes
 
 ### 3. Create a GitHub OAuth Application
 
 1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
-2. Click "New OAuth App"
+2. Click \"New OAuth App\"
 3. Fill in the following details:
-   - **Application name**: Your choice (e.g., "My IDX Auth App")
+   - **Application name**: Your choice (e.g., \"My IDX Auth App\")
    - **Homepage URL**: Your IDX preview URL (from step 1)
    - **Authorization callback URL**: `<your-idx-preview-url>/api/auth/callback/github`
-4. Click "Register application"
+4. Click \"Register application\"
 5. On the next page, note your Client ID
-6. Click "Generate a new client secret" and note the secret value
+6. Click \"Generate a new client secret\" and note the secret value
 
 ### 4. Configure Environment Variables
 
@@ -112,10 +107,3 @@ If you're seeing OAuth errors when attempting to sign in with GitHub:
 1. Check the callback URL in your GitHub OAuth app settings
 2. Ensure your NEXTAUTH_SECRET is properly set
 3. Verify your workspace is publicly accessible
-
-## Resources
-
-- [NextAuth.js Documentation](https://next-auth.js.org/)
-- [Next.js App Router Documentation](https://nextjs.org/docs/app)
-- [GitHub OAuth Documentation](https://docs.github.com/en/developers/apps/building-oauth-apps)
-- [Google IDX Documentation](https://developers.google.com/idx)
